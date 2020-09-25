@@ -38,6 +38,14 @@ void Snake::readInput()
 		m_yIncrease = 0;						//vertically, and its y coordinate increase is set to -1 so that it will move upwards. Its avatar
 		m_snakeAvatar = '>';					//Is changed to ^ to show the direction it is facing
 	}
+	if(m_numBodySegments > 0)
+	{
+		for(int i = 1; i <= m_numBodySegments; i++)
+		{
+			m_bodySegments[i - 1].setXIncrease(m_xIncrease);
+			m_bodySegments[i - 1].setYIncrease(m_yIncrease);
+		}
+	}
 }
 
 void Snake::update()
@@ -46,6 +54,13 @@ void Snake::update()
 	m_xCoord += m_xIncrease;
 	//Adds the value of m_xIncrease to the x coordinate of the snake to move it vertically
 	m_yCoord += m_yIncrease;
+	if (m_numBodySegments > 0)
+	{
+		for (int i = 1; i <= m_numBodySegments; i++)
+		{
+			m_bodySegments[i - 1].update();
+		}
+	}
 	//Checks to see if there is any input at all before trying to determine what key has been pressed
 	if (_kbhit())
 	{
