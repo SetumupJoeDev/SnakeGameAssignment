@@ -7,7 +7,6 @@
 MenuRenderer::MenuRenderer( )
 {
 	//Text Colours
-	m_defaultTextColour = Settings::Menu::TextColours::m_defaultColour;
 	m_highlightedTextColour = Settings::Menu::TextColours::m_highlightedColour;
 	//Text Contents
 	m_titleText = Settings::Menu::TextToDisplay::m_titleText;
@@ -28,8 +27,8 @@ MenuRenderer::MenuRenderer( )
 void MenuRenderer::renderTitleAndWelcome( )
 {
 	//Draws the game's title and welcome text in their positions on screen
-	DrawString( m_titleText, m_menuTitlePosition, m_defaultTextColour );
-	DrawString( m_welcomeText, m_welcomeTextPosition, m_defaultTextColour );
+	DrawString( m_titleText, m_menuTitlePosition );
+	DrawString( m_welcomeText, m_welcomeTextPosition );
 }
 
 void MenuRenderer::renderMenuOptions( )
@@ -41,37 +40,37 @@ void MenuRenderer::renderMenuOptions( )
 		//Draws the menu options, with option one highlighted
 		DrawString( m_optionOneText, m_menuOptionOnePosition, m_highlightedTextColour );
 		ChangeHandleColour( );
-		DrawString( m_optionTwoText, m_menuOptionTwoPosition, m_defaultTextColour );
-		DrawString( m_optionThreeText, m_menuOptionThreePosition, m_defaultTextColour );
-		DrawString( m_optionFourText, m_menuOptionFourPosition, m_defaultTextColour );
+		DrawString( m_optionTwoText, m_menuOptionTwoPosition );
+		DrawString( m_optionThreeText, m_menuOptionThreePosition );
+		DrawString( m_optionFourText, m_menuOptionFourPosition );
 		break;
 	}
 	case MenuRenderer::menuOptions::playAdventure:
 	{
 		//Draws the menu options, with option two highlighted
-		DrawString( m_optionOneText, m_menuOptionOnePosition, m_defaultTextColour );
+		DrawString( m_optionOneText, m_menuOptionOnePosition );
 		DrawString( m_optionTwoText, m_menuOptionTwoPosition, m_highlightedTextColour );
 		ChangeHandleColour( );
-		DrawString( m_optionThreeText, m_menuOptionThreePosition, m_defaultTextColour );
-		DrawString( m_optionFourText, m_menuOptionFourPosition, m_defaultTextColour );
+		DrawString( m_optionThreeText, m_menuOptionThreePosition );
+		DrawString( m_optionFourText, m_menuOptionFourPosition );
 		break;
 	}
 	case MenuRenderer::menuOptions::clearScore:
 	{
 		//Draws the menu options, with option three highlighted
-		DrawString( m_optionOneText, m_menuOptionOnePosition, m_defaultTextColour );
-		DrawString( m_optionTwoText, m_menuOptionTwoPosition, m_defaultTextColour );
+		DrawString( m_optionOneText, m_menuOptionOnePosition );
+		DrawString( m_optionTwoText, m_menuOptionTwoPosition );
 		DrawString( m_optionThreeText, m_menuOptionThreePosition, m_highlightedTextColour );
 		ChangeHandleColour( );
-		DrawString( m_optionFourText, m_menuOptionFourPosition, m_defaultTextColour );
+		DrawString( m_optionFourText, m_menuOptionFourPosition );
 		break;
 	}
 	case MenuRenderer::menuOptions::quitGame:
 	{
 		//Draws the menu options, with option four highlighted
-		DrawString( m_optionOneText, m_menuOptionOnePosition, m_defaultTextColour );
-		DrawString( m_optionTwoText, m_menuOptionTwoPosition, m_defaultTextColour );
-		DrawString( m_optionThreeText, m_menuOptionThreePosition, m_defaultTextColour );
+		DrawString( m_optionOneText, m_menuOptionOnePosition );
+		DrawString( m_optionTwoText, m_menuOptionTwoPosition );
+		DrawString( m_optionThreeText, m_menuOptionThreePosition );
 		DrawString( m_optionFourText, m_menuOptionFourPosition, m_highlightedTextColour );
 		ChangeHandleColour( );
 		break;

@@ -13,7 +13,6 @@ private:
 	enum class menuOptions{ playClassic, playAdventure, clearScore, quitGame };
 	menuOptions m_currentMenuOption;
 	//Integers
-	int m_defaultTextColour;
 	int m_highlightedTextColour;
 	//Strings
 	std::string m_titleText;

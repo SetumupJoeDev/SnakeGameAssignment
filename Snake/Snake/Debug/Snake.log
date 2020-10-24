@@ -1,2 +1,16 @@
-﻿  MenuRenderer.cpp
+﻿  CharacterBase.cpp
+  Framework.cpp
+  Fruit.cpp
+  Game.cpp
+  Game.h
+  Helpers.cpp
+  BoundaryManager.cpp
+  MenuRenderer.cpp
+  ScoreManager.cpp
+  Snake.cpp
+  SnakeSegment.cpp
+  MusicManager.cpp
+  Vector2.cpp
+  Generating Code...
+Debug\Game.obj : warning LNK4042: object specified more than once; extras ignored
   Snake.vcxproj -> D:\Documents\University\Year 2\Module 1\Assignment\Snake Project\SnakeGameAssignment\Snake\Debug\SnakeProject.exe

@@ -37,7 +37,7 @@ void Game::renderMainMenu( )
 	{
 		//Checks to see what key was pressed
 		char inputChar = _getch( );
-		int asciiCode = ( int ) inputChar;
+		int asciiCode = static_cast< int >( inputChar );
 		switch ( asciiCode )
 		{
 		case 72:
@@ -45,7 +45,7 @@ void Game::renderMainMenu( )
 			//If the UP arrow was pressed, and the current menu option is not the top one, the menu selection moves up
 			if ( ( int ) m_currentMenuOption > 0 )
 			{
-				int optionInt = ( int ) m_currentMenuOption - 1;
+				int optionInt = static_cast< int >( m_currentMenuOption ) - 1;
 				m_currentMenuOption = (MenuOptions)optionInt;
 				m_menuRenderer.setCurrentOption( optionInt );
 				m_menuRenderer.renderMainMenu( );
@@ -57,7 +57,7 @@ void Game::renderMainMenu( )
 			//If the DOWN arrow was pressed, and the current menu option is not the bottom one, the menu selection moves down
 			if ( ( int ) m_currentMenuOption < 3 )
 			{
-				int optionInt = ( int ) m_currentMenuOption + 1;
+				int optionInt = static_cast< int >( m_currentMenuOption ) + 1;
 				m_currentMenuOption = ( MenuOptions ) optionInt;
 				m_menuRenderer.setCurrentOption( optionInt );
 				m_menuRenderer.renderMainMenu( );
@@ -72,7 +72,7 @@ void Game::renderMainMenu( )
 			case Game::MenuOptions::playClassic:
 			{
 				//If the current option is playClassic, the classic game mode is executed
-				m_currentGameState = GameStates::gameRunning;
+				m_currentGameState = GameStates::playingClassic;
 				//Clears all text from the screen
 				system( "cls" );
 				//The game's background music is played
@@ -82,6 +82,7 @@ void Game::renderMainMenu( )
 			case Game::MenuOptions::playAdventure:
 			{
 				//Adventure mode goes here
+				m_currentGameState = GameStates::playingAdventure;
 				break;
 			}
 			case Game::MenuOptions::clearHighScore:
@@ -136,7 +137,7 @@ void Game::runGame( )
 	//Draws the fruit in the console
 	m_fruit.unrenderChar( );
 	m_fruit.renderChar( );
-	renderScore( );
+	m_scoreManager.displayScores( );
 }
 
 void Game::renderGameOver( )
@@ -203,11 +204,17 @@ void Game::mainLoop( )
 				renderMainMenu( );
 				break;
 			}
-			case GameStates::gameRunning:
+			case GameStates::playingClassic:
 			{
 				runGame( );
 				checkHasDied( );
 				checkHasCollectedFruit( );
+				break;
+			}
+			case GameStates::playingAdventure:
+			{
+				system( "cls" );
+				std::cout << "There is no game. Go home.";
 				break;
 			}
 			case GameStates::deathScreen:

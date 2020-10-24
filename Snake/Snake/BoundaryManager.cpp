@@ -5,12 +5,12 @@
 BoundaryManager::BoundaryManager( )
 {
 	//Wall Characters
-	m_bottomLeftCorner	= ( char ) 200;
-	m_bottomRightCorner = ( char ) 188;
-	m_sideWall			= ( char ) 186;
-	m_topLeftCorner		= ( char ) 201;
-	m_topRightCorner	= ( char ) 187;
-	m_topWall			= ( char ) 205;
+	m_bottomLeftCorner	= static_cast < char >( 200 );
+	m_bottomRightCorner = static_cast < char >( 188 );
+	m_sideWall			= static_cast < char >( 186 );
+	m_topLeftCorner		= static_cast < char >( 201 );
+	m_topRightCorner	= static_cast < char >( 187 );
+	m_topWall			= static_cast < char >( 205 );
 	//Level Boundaries
 	m_topBoundary		= Settings::Level::m_topBoundary;
 	m_bottomBoundary	= Settings::Level::m_bottomBoundary;
@@ -24,6 +24,7 @@ BoundaryManager::BoundaryManager( )
 
 void BoundaryManager::renderCorners( )
 {
+	//Renders the corners of the wall
 	m_wallPosition.setPosition( m_leftBoundary, m_topBoundary );
 	DrawChar( m_topLeftCorner, m_wallPosition, m_wallColour );
 	m_wallPosition.setPosition( m_rightBoundary, m_topBoundary );

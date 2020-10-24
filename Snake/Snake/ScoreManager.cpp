@@ -1,4 +1,7 @@
 
+#include <string>
+
+#include "Helpers.h"
 #include "ScoreManager.h"
 
 ScoreManager::ScoreManager( )
@@ -7,6 +10,8 @@ ScoreManager::ScoreManager( )
 	m_highScore = 0;
 	m_scoreFile = "HighScore.txt";
 	readHighScore( );
+	m_scorePosition.setPosition( 35, 0 );
+	m_highScorePosition.setPosition( 50, 0 );
 }
 
 void ScoreManager::readHighScore( )
@@ -23,4 +28,10 @@ void ScoreManager::writeHighScore( int newHighScore )
 	m_highScoreFileWrite.open( m_scoreFile );
 	m_highScoreFileWrite << newHighScore;
 	m_highScoreFileWrite.close( );
+}
+
+void ScoreManager::displayScores( )
+{
+	DrawString( "Score: " + std::to_string( m_currentScore ), m_scorePosition );
+	DrawString( "High Score: " + std::to_string( m_highScore ), m_highScorePosition );
 }

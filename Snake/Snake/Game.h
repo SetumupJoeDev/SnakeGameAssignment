@@ -19,7 +19,7 @@ private:
 	bool m_hasRenderedWalls;
 	bool m_stillPlaying;
 	//Enums
-	enum class GameStates{mainMenu, gameRunning, deathScreen };
+	enum class GameStates{mainMenu, playingClassic, playingAdventure, deathScreen };
 	enum class MenuOptions{playClassic, playAdventure, clearHighScore, quitGame };
 	enum GameStates m_currentGameState;
 	enum MenuOptions m_currentMenuOption;
